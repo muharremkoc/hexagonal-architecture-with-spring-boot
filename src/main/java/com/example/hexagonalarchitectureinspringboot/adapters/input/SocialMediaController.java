@@ -19,7 +19,7 @@ public class SocialMediaController {
     final AddFriendUseCase addFriendUseCase;
     final BlockFriendUseCase blockFriendUseCase;
     final SaveUserPort socialMediaPort;
-    final GetUserPort socialMediaGetPort;
+    final SocialMediaService socialMediaService;
 
 
     @PostMapping(value = "/addFriend/{count}")
@@ -37,5 +37,8 @@ public class SocialMediaController {
         socialMediaPort.save(socialMediaFriendShip);
     }
 
-
+    @GetMapping(value = "/user/{userName}")
+    public SocialMediaFriendShip getUser(@PathVariable("userName") String userName){
+        return socialMediaService.getUser(userName);
+    }
 }

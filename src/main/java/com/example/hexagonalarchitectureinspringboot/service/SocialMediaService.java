@@ -34,4 +34,8 @@ public class SocialMediaService implements AddFriendUseCase, BlockFriendUseCase 
         }
         return isBlocked;
     }
+
+    public SocialMediaFriendShip getUser(String userName){
+        return getUserPort.load(userName);
+    }
 }
